@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<title>变量作用域--scope</title>
+		<meta name="description" content="" />
+		<meta name="author" content="Administrator" />
+		<meta name="viewport" content="width=device-width; initial-scale=1.0" />
+		<!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+	</head>
+	<body>
+		<div>
+			<p  id="scope">变量作用域--scope</p>
+			<button type="button" onclick="tet(0)"> 变量作用域测试</button>
+			<button type="button" onclick="intest()"> in运算符</button>
+			<button type="button" onclick="xh()"> 逗号运算符</button>
+		</div>
+		<script>
+		function tet(o){
+			var i = 0;
+			var j;
+			var k;
+			if(o==0){
+				j =0;
+				for(k =0; k<5; k++){
+					console.log("a");
+					j =k; 
+				}
+				console.log("bg="+k);
+			}
+			console.log(j);		
+		}
+		 
+		 function intest(){
+		 	var da = [3,6,9];
+		 	if("0" in da){	
+		 		var aa = document.getElementById("scope").innerHTML = "0 为数组属性值" + "<br>";	 	
+		 		console.log(1);		 		
+		 	}
+		 	if(1 in da){
+		 		document.getElementById("scope").innerHTML =aa + "1 为数组属性值"	 
+		 		console.log(11);
+		 	}
+		 	if(3 in da){
+		 		console.log(111);
+		 	}
+		 	else console.log(0);
+		 }
+		 
+		 function xh(){
+		 	var sum = 0;
+		 	for(var i=0, j=10 ; i < 10 ; i++, j--){
+		          sum += i * j;
+		 		 console.log(sum + " -- i=" + i + " -- j=" + j);				 
+		 	} 	
+		 }
+		</script>
+	</body>
+</html>
