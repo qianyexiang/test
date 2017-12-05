@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<title>输出100以内的质数</title>
+		<meta name="description" content="" />
+		<meta name="author" content="Administrator" />
+		<meta name="viewport" content="width=device-width; initial-scale=1.0" />
+		<!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+	</head>
+	<body>
+		<div>
+			<header>
+				<h1>输出100以内的质数</h1>
+			</header>
+			 
+			<script>
+			   //var a = parseInt(window.prompt("input a number"));
+			  //只能被1 和自己整除的数为质数
+			 //1 不是质数
+			//定义一个count用于计数，当一个数被1到自己之内的数整除次数超过2次就不是质数
+		  //当一个数被1 到自己的平方根之内的数整除只有1次的就是质数
+			   var count = 0;
+				for(var i = 2 ; i < 100 ; i++){
+					for(var j = 1; j <= Math.sqrt(i) ; j ++){
+						if( i % j == 0){
+							count++;				
+						}	
+					}
+			     if( count == 1){  //被1到自己的平方根之内的数整除的次数为1次
+							document.write(i + " , ");	
+						}					
+					count = 0;								 
+				}
+			</script>
+		 
+		</div>
+	</body>
+</html>
