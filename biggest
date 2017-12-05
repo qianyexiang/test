@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<title>比较三个数中最大的值</title>
+		<meta name="description" content="" />
+		<meta name="author" content="Administrator" />
+		<meta name="viewport" content="width=device-width; initial-scale=1.0" />
+		<!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+	</head>
+	<body>
+		<div>
+			<header>
+				<h1>比较三个数中最大的值</h1>
+			</header>
+			 
+		</div>
+		<script>
+		    
+			var a = parseInt(window.prompt("input"));
+			var b = parseInt(window.prompt("input"));
+			var c = parseInt(window.prompt("input"));
+			
+			if(a >= b){
+				if(a >= c){
+					document.write("这三个数中最大的是 " + a );	
+				}
+				else{
+					document.write("这三个数中最大的是 " + c );	
+				}					
+			}
+			else{
+				if(b >= c){
+					document.write("这三个数中最大的是 : " + b );	
+				}
+				else{
+					document.write("这三个数中最大的是 " + c );	
+				}							 
+			}		
+		</script>
+	</body>
+</html>
