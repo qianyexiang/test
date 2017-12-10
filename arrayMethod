@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<title>数组方法</title>
+		<meta name="description" content="" />
+		<meta name="author" content="Administrator" />
+		<meta name="viewport" content="width=device-width; initial-scale=1.0" />
+		<!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+		<style>
+			h4{
+				margin-top:30px ;
+				margin-left: -50px;
+			}
+			.test-array{
+				padding: 0px 0 50px 150px;
+			}
+		</style>
+	</head>
+	<body>
+			<header>
+				<h1>一、数组方法举例：例，数组a = [ 1 , 2 , 3 , 4 ]</h1>
+			</header>		
+			<div class="test-array">
+				<h4>1、join()：将数组中所有元素都转化为字符串并连接在一起，可自定义连接符</h4>
+				<script>
+					var a = [ 1 , 2 , 3 , 4 ];					
+					var b = a.join(" - ");
+					document.write(b);					 
+				</script>
+				
+				<h4>2、reverse()：将数组中元素颠倒顺序，并返回逆序的数组。 【修改原数组】</h4>
+				<script>
+					var c = a.reverse().join(" , ");
+					document.write(c);		 
+				</script>
+			
+				<h4>3、sort()：将数组中的元素排序并返回排序后的数组。 【修改原数组】</h4>
+				<script>
+				  var a3 = [ 1 , 2 , 3 , 4 ];
+					var d = a3.sort(function(a,b){
+						return b-a; //逆序排列
+					});
+					var e = d.join(" , ");
+					document.write(e);			 	
+				</script>
+				
+				<h4>4、concat()：创建一个新数组，它的元素包括调用concat()的原始数组的元素和concat()的每个参数</h4>
+				<script>
+				   var a4 = [ 1 , 2 , 3 , 4 ];
+					var f4 = a4.concat(5,[6,7],8);
+					document.write(f4);				 
+				</script>
+				
+				<h4>5、slice()：返回指定数组的一个片段或子数组。它的2个参数分别指定了片段的开始位置和结束位置</h4>
+				<script>
+				    var g5 = a4.slice(1,3); //返回索引值1 到  3 的值，不包括3；
+					document.write(" 返回的元素是： " + g5 + "； 原始数组为：" + a4);		
+				</script>
+				
+				<h4>6、splice()：在数组中插入或删除元素的通用方法。【修改原数组】</h4>
+				<script>
+				  var h6 = a4.splice(1,2,'xiu','gai');
+					document.write(" 删除的元素是： " + h6 + "； 原始数组为：" + a4);			
+				</script>
+				
+				<h4>7、push()和pop()：push()方法在数组的尾部添加一个或者多个元素，并返回新数组的长度。pop()则删除数组最后一个元素，并返回它删除的值。【修改原始数组】</h4>
+				<script>
+				    a4.push([3,4],'hello','31');				    
+					document.write(" push()后的原始数组为： " + a4 );			
+					var i7 = a4.pop();
+					document.write("； 再pop()后的原始数组为：" + a4 + " ; pop()方法的返回值为：" + i7);			
+				</script>
+								
+				<h4>8、unshift()和shift()：unshift()方法在数组头部添加一个或者多个元素； shift()删除数组的第一个元素并将其返回。【修改原数组】</h4>
+				<script>
+				    a4.unshift('my','head');				    
+					document.write(" unshift()后的原始数组为： " + a4 );			
+					a4.shift();
+					document.write("； 再shift()后的原始数组为：" + a4);			
+				</script>
+				
+				<h4>9、toString()和toLocaleString()：将数组元素转化为字符串并输出用逗号分隔的字符串列表</h4>				
+				<script>
+				    a4.toString();
+					document.write(a4);			
+				</script>
+			</div>
+			
+			<h1>二、ECMAScript 5 中的数组方法</h1>			
+			<div class="test-array">
+				<h4>1、forEach()：从头至尾遍历数组，为每个元素调用指定的函数。</h4>
+				 <script>
+				 	var data = [ 1 , 2 , 3 , 4 , 5 , 6 , 7 , 8 , 9 , 10 ];
+				 	var sum = 0;
+				 	data.forEach(function(value){
+				 		sum += value;
+				 	});
+				 	document.write(sum);	
+				 </script>
+				 
+				<h4>2、map()：将调用的数组每个元素传递给指定的函数。有返回值，不修改原数组。</h4>
+				<script>
+					var m2 = data.map(function(i){ return i*2});
+					document.write(m2);
+				</script>
+				
+				<h4>3、filter()：返回的数组元素是调用的数组的一个子集。函数用于逻辑判定。</h4>
+				<script>
+					var m3 = data.filter(function(va){ return va > 4});
+					document.write(m3);
+				</script>
+				
+				<h4>4、every() 和 some() ：数组的逻辑判定，对数组元素用指定的函数判定，返回true或false。</h4>
+				<script>
+					var m4 = data.every(function(x){ return x < 4}); //false， 不是所有值都小于4
+					var m5 = data.every(function(x){ return x > 0}); //true， 所有值都大于0；【全部为true时every才为true】
+					var m6 = data.some(function(x){ return x < 4}); //true， data中有值小于4就为true
+					var m7 = data.some(function(x){ return x > 20}); //false， 所有值都不大于20；【全部为false时some才为false】
+					document.write(m4 + " , " +  m5 + " , " +  m6 + " , " +  m7);
+				</script>
+				
+				<h4>5、reduce() 和 reduceRight() ：使用指定的函数将数组元素进行组合，生成单个值。也称“注入”或“折叠”。</h4>
+				<script>
+					var re1 = data.reduce(function(x,y){ return x+y;},1);
+					document.write(re1);
+				</script>
+				
+				<h4>6、indexOf() 和 lastindexOf() ：搜索整个数组中具有给定元素的值。返回第一个匹配元素的索引值，没有找到就返回-1。</h4>
+					<script>
+					var myarray = [ 12,44,5,5,2,5,21,4,5,6,7,5];							
+					document.write(findall(myarray,5));
+					
+					function findall(a,x){ //在数组中查找所有出现的x，并返回一个包含所有匹配索引值的数组
+						var results = [],
+						      len = a.length,
+						      pos = 0;  //开始搜索的位置
+						while(pos < len){ 
+							pos = a.indexOf(x,pos);
+							if(pos === -1) break; //未找到，就完成搜索
+							results.push(pos);
+							pos += 1;
+						}
+						return results;
+					}
+				</script>
+				
+		</div>
+		</body>
+</html>
